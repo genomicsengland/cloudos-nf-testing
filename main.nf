@@ -11,11 +11,16 @@ process SPLITLETTERS {
     """
     printf '${greeting}' | split -b 6 - chunk_
     """
-} 
+}
+
+split_ch
+    .flatten()
+    .view()
+    .set { split_ch }
 
 process CONVERTTOUPPER {
     input: 
-    path(chunk) from split_ch.flatten()
+    path(chunk) from split_ch
 
     script: 
     """
