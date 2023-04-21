@@ -1,3 +1,13 @@
+
+// CloudOS
+
+/*
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Test that files written to the working directory and put into a channel
+are succesfully staged in the next process.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*/
+
 greeting_ch = channel.of(params.greeting) 
 
 process SPLITLETTERS { 
