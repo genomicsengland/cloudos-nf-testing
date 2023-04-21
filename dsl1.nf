@@ -1,8 +1,3 @@
-nextflow.enable.dsl = 1
-
-params.executor = 'awsbatch'
-params.greeting = 'Hello world!'
-
 greeting_ch = channel.of(params.greeting) 
 
 process SPLITLETTERS { 
