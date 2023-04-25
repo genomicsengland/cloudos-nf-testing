@@ -32,6 +32,7 @@ split_ch
     .set { split_ch }
 
 split_host_ch
+    .splitCsv()
     .view()
 
 process CONVERTTOUPPER {
