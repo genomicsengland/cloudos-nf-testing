@@ -15,11 +15,12 @@ process SPLITLETTERS {
     val(greeting) from greeting_ch
 
     output: 
-    path 'chunk_*' into split_ch
+    path "chunk_*" into split_ch
+    path "hostname_splitletters" into split_host_ch
 
     script: 
     """
-    hostname
+    cat <(hostname) > hostname_splitletters
 
     printf '${greeting}' | split -b 6 - chunk_
     """
@@ -30,6 +31,9 @@ split_ch
     .view()
     .set { split_ch }
 
+split_host_ch
+    .view()
+
 process CONVERTTOUPPER {
     input: 
     path(chunk) from split_ch
@@ -37,7 +41,7 @@ process CONVERTTOUPPER {
     script: 
     """
     hostname
-    
+
     tr '[a-z]' '[A-Z]' < ${chunk} > ${chunk}_convert
     """
 }
