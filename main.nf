@@ -19,6 +19,8 @@ process SPLITLETTERS {
 
     script: 
     """
+    hostname
+
     printf '${greeting}' | split -b 6 - chunk_
     """
 }
@@ -34,6 +36,8 @@ process CONVERTTOUPPER {
 
     script: 
     """
+    hostname
+    
     tr '[a-z]' '[A-Z]' < ${chunk} > ${chunk}_convert
     """
 }
